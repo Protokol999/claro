@@ -21,6 +21,18 @@ import { useJsApiLoader } from '@react-google-maps/api';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
+const containerStyle = {
+  width: '100%',
+  height: '400px',
+  borderRadius: '8px',
+  border: '1px solid #444'
+};
+
+const center = {
+  lat: 47008524, // Широта Кишинёва
+  lng: 28846685 // Долгота Кишинёва
+};
+
 export const Contacts = () => {
   const [form, setForm] = useState({
     name: '',
@@ -32,7 +44,8 @@ export const Contacts = () => {
   const [success, setSuccess] = useState(false);
 
   const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script'
+    id: 'google-map-script',
+    googleMapsApiKey: 'YOUR_GOOGLE_MAPS_API_KEY' //
   });
 
   const handleChange = e => {
